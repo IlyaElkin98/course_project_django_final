@@ -111,7 +111,6 @@ class EmailAttempt(models.Model):
 
     def clean(self):
         now = timezone.now()
-        campaign = Campaign
         if self.campaign.start_time <= now <= self.campaign.end_time:
             print("Отправка разрешена.")
         raise ValidationError("Отправка запрещена.")
